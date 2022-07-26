@@ -12,7 +12,7 @@ public class MapCache {
     private final ConcurrentHashMap<String, SoftReference<CacheObject>> cache = new ConcurrentHashMap<>();
 
     /**
-     * 在构造函数中，创建一个守护程序线程，每5秒扫描一次并清理过期的对象。
+     * 在构造函数中，创建一个守护程序线程，每5秒扫描一次并清理过期的对象。 再看一下
      */
     public MapCache(){
         Thread cleanerThread = new Thread(()->{
