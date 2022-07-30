@@ -21,6 +21,7 @@ public class UserInfoController {
 
     @PostMapping("/browsUserInfo")
     public Result<List<UserInfoVO>> browsUserInfo(@RequestBody PersonRequest request){
+        //调试
         return Result.buildResult(Result.Status.OK, iUserInfoService.browsUserInfo(request));
     }
 
