@@ -3,7 +3,5 @@ D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intellig
 D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\vo\UserInfoVO.java
 D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\service\IUserInfoService.java
 D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\controller\UserInfoController.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\mapper\UserInfoMapper.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\model\dto\UserInfoDO.java
 D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\web\main\IntelligentWebApplication.java
 D:\Software\WorkSpace\Intelligent_App\Intelligent_Web\src\main\java\com\intelligent\model\dto\UserInfo.java

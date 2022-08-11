@@ -1,8 +1,7 @@
-package com.intelligent.mapper;
+package com.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.intelligent.model.dto.UserInfoDO;
-import org.apache.ibatis.annotations.Mapper;
+import model.dto.UserInfoDO;
 
 /**
  * <p>

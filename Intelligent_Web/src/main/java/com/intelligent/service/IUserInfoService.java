@@ -18,4 +18,6 @@ public interface IUserInfoService {
     List<UserInfoVO> browsUserInfo(PersonRequest request);
 
     boolean updateUserInfo(PersonRequest request);
+
+    boolean insertUserInfo(PersonRequest request);
 }

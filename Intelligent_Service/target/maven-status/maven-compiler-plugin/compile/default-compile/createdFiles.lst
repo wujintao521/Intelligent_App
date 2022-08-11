@@ -2,3 +2,5 @@ BaseBeanUtils.class
 BaseForm.class
 ScoreForm.class
 UserForm.class
+model\dto\UserInfoDO.class
+com\mapper\UserInfoMapper.class

@@ -1,5 +1,4 @@
 com\commos\utils\CodeGenerator.class
-com\commos\utils\HttpUtils.class
 com\commos\utils\CodeGenerator$1.class
 com\commos\utils\Result$Status.class
 com\commos\utils\JsonUtils.class

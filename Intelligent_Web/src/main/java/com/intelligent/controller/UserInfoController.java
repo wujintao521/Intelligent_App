@@ -5,6 +5,7 @@ import com.intelligent.request.PersonRequest;
 import com.intelligent.service.IUserInfoService;
 import com.intelligent.vo.UserInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("user/login")
+@RequestMapping("user")
 @RestController
+@Component
 public class UserInfoController {
 
     @Autowired
@@ -21,13 +23,17 @@ public class UserInfoController {
 
     @PostMapping("/browsUserInfo")
     public Result<List<UserInfoVO>> browsUserInfo(@RequestBody PersonRequest request){
-        //调试
         return Result.buildResult(Result.Status.OK, iUserInfoService.browsUserInfo(request));
     }
 
     @PostMapping("/updateUserInfo")
-    public Boolean updateUserInfo(@RequestBody PersonRequest request){
-        return iUserInfoService.updateUserInfo(request);
+    public Result<Boolean> updateUserInfo(@RequestBody PersonRequest request){
+        return Result.buildResult(Result.Status.OK,iUserInfoService.updateUserInfo(request));
+    }
+
+    @PostMapping("/insertUserInfo")
+    public Result<Boolean> insertUserInfo(@RequestBody PersonRequest request){
+        return Result.buildResult(Result.Status.OK,iUserInfoService.insertUserInfo(request));
     }
 
 }

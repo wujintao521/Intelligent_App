@@ -9,6 +9,7 @@
         <!--设置父项目的pom-->
         <relativePath>../pom.xml</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <artifactId>Intelligent_Web</artifactId>

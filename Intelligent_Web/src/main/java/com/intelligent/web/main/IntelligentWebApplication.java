@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = "com.intelligent")
 @SpringBootApplication
-@MapperScan("com.intelligent.mapper")
+@MapperScan("com.mapper")
 public class IntelligentWebApplication extends SpringBootServletInitializer {
 
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {

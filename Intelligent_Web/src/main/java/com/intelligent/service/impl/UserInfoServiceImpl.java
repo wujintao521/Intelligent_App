@@ -1,7 +1,7 @@
 package com.intelligent.service.impl;
 
-import com.intelligent.mapper.UserInfoMapper;
-import com.intelligent.model.dto.UserInfoDO;
+import com.mapper.UserInfoMapper;
+import model.dto.UserInfoDO;
 import com.intelligent.request.PersonRequest;
 import com.intelligent.service.IUserInfoService;
 import com.intelligent.vo.UserInfoVO;
@@ -40,5 +40,13 @@ public class UserInfoServiceImpl  implements IUserInfoService {
         UserInfoDO userInfoDO =  userInfoMapper.selectById(1);
         userInfoDO.setUserName("fred");
         return userInfoMapper.updateById(userInfoDO)>0;
+    }
+
+    public boolean insertUserInfo(PersonRequest request) {
+        UserInfoDO userInfoDO = new UserInfoDO();
+        userInfoDO.setUId("1002");
+        userInfoDO.setUserName("wjt");
+        userInfoMapper.insert(userInfoDO);
+        return true;
     }
 }
