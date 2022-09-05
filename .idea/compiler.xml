@@ -7,23 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Intelligent_Commons" />
-        <module name="Intelligent_Web" />
-        <module name="Intelligent_Service" />
+        <module name="Intelligent-service" />
+        <module name="Intelligent-web" />
+        <module name="Intelligent-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="A" target="8" />
+      <module name="Intelligent-dao" target="8" />
       <module name="Intelligent_Util" target="8" />
       <module name="untitled" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Intelligent_Commons" options="-parameters" />
-      <module name="Intelligent_Service" options="-parameters" />
+      <module name="Intelligent-common" options="-parameters" />
+      <module name="Intelligent-dao" options="-parameters" />
+      <module name="Intelligent-service" options="-parameters" />
+      <module name="Intelligent-web" options="-parameters" />
       <module name="Intelligent_Util" options="-parameters" />
-      <module name="Intelligent_Web" options="-parameters" />
     </option>
   </component>
 </project>

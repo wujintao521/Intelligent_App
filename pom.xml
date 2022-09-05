@@ -19,9 +19,9 @@
 
     <!--子模块依赖-->
     <modules>
-        <module>Intelligent_Web</module>
-        <module>Intelligent_Commons</module>
-        <module>Intelligent_Service</module>
+        <module>Intelligent-web</module>
+        <module>Intelligent-common</module>
+        <module>Intelligent-service</module>
     </modules>
     <name>Intelligent_App</name>
     <description>Intelligent_App</description>
