@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
-    <artifactId>Intelligent_App</artifactId>
+    <artifactId>Intelligent-app</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <profiles></profiles>
@@ -22,10 +22,10 @@
         <module>Intelligent-web</module>
         <module>Intelligent-common</module>
         <module>Intelligent-service</module>
+        <module>Intelligent-Model</module>
     </modules>
-    <name>Intelligent_App</name>
-    <description>Intelligent_App</description>
-
+    <name>Intelligent-app</name>
+    <description>Intelligent-app</description>
     <dependencies>
         <!--lombok-->
         <dependency>

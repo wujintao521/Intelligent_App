@@ -1,4 +1,4 @@
-package model.dto;
+package com.model.dto;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
