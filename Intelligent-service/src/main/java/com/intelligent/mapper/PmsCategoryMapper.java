@@ -1,6 +1,4 @@
-package com.mapper;
-
-import com.model.dto.PmsCategory;
+package com.intelligent.mapper;
 
 import java.util.List;
 

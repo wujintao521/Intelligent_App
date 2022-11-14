@@ -1,4 +1,4 @@
-package com.commos.eums;
+package com.intelligent.commons.eums;
 
 import lombok.Getter;
 

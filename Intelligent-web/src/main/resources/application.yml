@@ -1,23 +1,8 @@
-#项目访问端口
-server:
-  port: 20300
-  servlet:
-    context-path: /
-
-#Spring整合mysql驱动
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    #url: jdbc:mysql://127.0.0.1:3306/intelligent_app?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-    url: jdbc:mysql://124.222.13.24:3306/intelligent_app?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    #password: root
-    password: wjt2734058
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-    serialization:
-      write-dates-as-timestamps: false
+  profiles:
+    active: @profiles.active@
+  application:
+    name: IntelligentWebApp
 
 #mybatis-plus
 mybatis-plus:
@@ -39,3 +24,4 @@ logging:
     com.example: debug
   file:
     path:log/intelligent-app.log
+

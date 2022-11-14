@@ -1,5 +1,10 @@
-public class BaseBeanUtils {
+package com.intelligent.commons.utils;
 
+import com.dto.BaseForm;
+import com.dto.ScoreForm;
+import com.dto.UserForm;
+
+public class BaseBeanUtils {
     public static <T extends BaseForm> T addForm(T form, T entity) {
 
 

@@ -1,4 +1,4 @@
-package com.commos.utils;
+package com.intelligent.commons.utils;
 
 public class Result<T>{
 

@@ -1,6 +1,6 @@
-package com.commos.utils;
+package com.intelligent.commons.utils;
 
-import com.commos.eums.Status;
+import com.intelligent.commons.eums.Status;
 import lombok.Data;
 
 @Data

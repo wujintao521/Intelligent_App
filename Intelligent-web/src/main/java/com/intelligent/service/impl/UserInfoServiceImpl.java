@@ -1,19 +1,18 @@
 package com.intelligent.service.impl;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.mapper.PmsCategoryMapper;
-import com.mapper.UserInfoMapper;
-import com.model.dto.PmsCategory;
-import com.model.dto.UserInfoDO;
 import com.intelligent.request.PersonRequest;
 import com.intelligent.service.IUserInfoService;
-import com.intelligent.vo.UserInfoVO;
-import org.apache.commons.collections4.CollectionUtils;
+import com.intelligent.mapper.PmsCategoryMapper;
+import com.intelligent.mapper.UserInfoMapper;
+import com.intelligent.mapper.PmsCategory;
+import com.intelligent.mapper.UserInfoDO;
+import com.vo.UserInfoVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**

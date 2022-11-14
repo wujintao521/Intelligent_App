@@ -1,12 +1,11 @@
 package com.intelligent.controller;
 
-import com.commos.utils.Result;
+import com.intelligent.commons.utils.Result;
 import com.intelligent.request.PersonRequest;
 import com.intelligent.service.IUserInfoService;
-import com.intelligent.vo.UserInfoVO;
-import com.model.dto.PmsCategory;
+import com.intelligent.mapper.PmsCategory;
+import com.vo.UserInfoVO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

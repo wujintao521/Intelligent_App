@@ -7,7 +7,6 @@
     <artifactId>Intelligent-app</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <profiles></profiles>
 
     <!--SpringBoot版本设置-->
     <parent>
@@ -22,7 +21,7 @@
         <module>Intelligent-web</module>
         <module>Intelligent-common</module>
         <module>Intelligent-service</module>
-        <module>Intelligent-Model</module>
+        <module>Intelligent-model</module>
     </modules>
     <name>Intelligent-app</name>
     <description>Intelligent-app</description>

@@ -1,4 +1,4 @@
-package com.model.dto;
+package com.intelligent.mapper;
 
 import lombok.Data;
 

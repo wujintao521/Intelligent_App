@@ -1,8 +1,8 @@
 package com.intelligent.service;
 
 import com.intelligent.request.PersonRequest;
-import com.intelligent.vo.UserInfoVO;
-import com.model.dto.PmsCategory;
+import com.intelligent.mapper.PmsCategory;
+import com.vo.UserInfoVO;
 
 import java.util.List;
 

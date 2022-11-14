@@ -1,7 +1,6 @@
-package com.mapper;
+package com.intelligent.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.model.dto.UserInfoDO;
 
 /**
  * <p>

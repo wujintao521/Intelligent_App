@@ -1,33 +1,19 @@
-package com.model.dto;
+package com.vo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author astupidcoder
- * @since 2022-01-04
- */
-@Data
-@EqualsAndHashCode(callSuper = true)
-@Accessors(chain = true)
-@TableName("user_info")
-public class UserInfoDO extends Model {
+@Getter
+@Setter
+public class UserInfoVO {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * user.id 主键id
      */
-    @TableId
     private String uId;
 
     /**
@@ -54,6 +40,4 @@ public class UserInfoDO extends Model {
      * 删除标识 0正常,1删除
      */
     private String deleted;
-
-
 }

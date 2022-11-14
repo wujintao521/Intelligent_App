@@ -1,4 +1,4 @@
-package com.intelligent.web.main;
+package com.intelligent;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = "com.intelligent")
 @SpringBootApplication
-@MapperScan("com.mapper")
-public class IntelligentWebApplication extends SpringBootServletInitializer {
+@MapperScan("com.intelligent.mapper")
+class IntelligentWebApplication extends SpringBootServletInitializer {
 
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return super.configure(builder);

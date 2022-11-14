@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mapper.PmsCategoryMapper">
-  <resultMap id="BaseResultMap" type="com.model.dto.PmsCategory">
+<mapper namespace="com.intelligent.mapper.PmsCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.intelligent.mapper.PmsCategory">
     <id column="cat_id" jdbcType="BIGINT" property="catId" />
     <result column="name" jdbcType="CHAR" property="name" />
     <result column="parent_cid" jdbcType="BIGINT" property="parentCid" />
@@ -22,7 +22,7 @@
     where cat_id = #{catId,jdbcType=BIGINT}
   </select>
 
-  <select id="getPmsCategoryInfo" parameterType="com.model.dto.PmsCategory" resultMap="BaseResultMap">
+  <select id="getPmsCategoryInfo" parameterType="com.intelligent.mapper.PmsCategory" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from pms_category
@@ -32,7 +32,7 @@
     delete from pms_category
     where cat_id = #{catId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="cat_id" keyProperty="catId" parameterType="com.model.dto.PmsCategory" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="cat_id" keyProperty="catId" parameterType="com.intelligent.mapper.PmsCategory" useGeneratedKeys="true">
     insert into pms_category (`name`, parent_cid, cat_level, 
       show_status, sort, icon, 
       product_unit, product_count)
@@ -40,7 +40,7 @@
       #{showStatus,jdbcType=TINYINT}, #{sort,jdbcType=INTEGER}, #{icon,jdbcType=CHAR}, 
       #{productUnit,jdbcType=CHAR}, #{productCount,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="cat_id" keyProperty="catId" parameterType="com.model.dto.PmsCategory" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="cat_id" keyProperty="catId" parameterType="com.intelligent.mapper.PmsCategory" useGeneratedKeys="true">
     insert into pms_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -95,7 +95,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.dto.PmsCategory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.intelligent.mapper.PmsCategory">
     update pms_category
     <set>
       <if test="name != null">
@@ -125,7 +125,7 @@
     </set>
     where cat_id = #{catId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.dto.PmsCategory">
+  <update id="updateByPrimaryKey" parameterType="com.intelligent.mapper.PmsCategory">
     update pms_category
     set `name` = #{name,jdbcType=CHAR},
       parent_cid = #{parentCid,jdbcType=BIGINT},
