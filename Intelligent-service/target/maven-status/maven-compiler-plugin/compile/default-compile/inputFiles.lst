@@ -1,6 +1,4 @@
-D:\Software\WorkSpace\Intelligent_App\Intelligent-service\src\main\java\BaseForm.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent-service\src\main\java\ScoreForm.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent-service\src\main\java\model\dto\UserInfoDO.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent-service\src\main\java\com\mapper\UserInfoMapper.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent-service\src\main\java\BaseBeanUtils.java
-D:\Software\WorkSpace\Intelligent_App\Intelligent-service\src\main\java\UserForm.java
+D:\IdeaProjects\Intelligent_App\Intelligent-service\src\main\java\com\intelligent\mapper\UserInfoDO.java
+D:\IdeaProjects\Intelligent_App\Intelligent-service\src\main\java\com\intelligent\mapper\PmsCategoryMapper.java
+D:\IdeaProjects\Intelligent_App\Intelligent-service\src\main\java\com\intelligent\mapper\PmsCategory.java
+D:\IdeaProjects\Intelligent_App\Intelligent-service\src\main\java\com\intelligent\mapper\UserInfoMapper.java

@@ -1,7 +1,6 @@
+com\intelligent\IntelligentWebApplication.class
 com\intelligent\request\PersonRequest.class
 com\intelligent\controller\UserInfoController.class
-com\intelligent\web\main\IntelligentWebApplication.class
 com\intelligent\service\impl\UserInfoServiceImpl.class
 com\intelligent\service\IUserInfoService.class
-com\intelligent\vo\UserInfoVO.class
 com\intelligent\model\dto\UserInfo.class
