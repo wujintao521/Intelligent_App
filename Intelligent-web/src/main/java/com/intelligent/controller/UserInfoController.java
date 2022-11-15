@@ -1,10 +1,12 @@
 package com.intelligent.controller;
 
 import com.intelligent.commons.utils.Result;
+import com.intelligent.mapper.PmsCategory;
 import com.intelligent.request.PersonRequest;
 import com.intelligent.service.IUserInfoService;
-import com.intelligent.mapper.PmsCategory;
 import com.vo.UserInfoVO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,10 +18,12 @@ import java.util.List;
 @RequestMapping("user")
 @RestController
 @RequiredArgsConstructor
+@Api(tags = "用户前端控制器")
 public class UserInfoController {
 
     final IUserInfoService iUserInfoService;
 
+    @ApiOperation("查询用户信息")
     @PostMapping("/browsUserInfo")
     public Result<List<UserInfoVO>> browsUserInfo(@RequestBody PersonRequest request){
         return Result.buildResult(Result.Status.OK, iUserInfoService.browsUserInfo(request));

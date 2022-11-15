@@ -1,5 +1,6 @@
 package com.intelligent.request;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,5 +13,6 @@ public class PersonRequest {
     /**
      * 姓名
      * */
+    @ApiModelProperty(value = "姓名")
     private String name;
 }
