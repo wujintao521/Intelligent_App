@@ -8,7 +8,6 @@ import com.intelligent.service.DemoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 
 @RequiredArgsConstructor

@@ -12,6 +12,8 @@
         <module>Intelligent-common-service</module>
         <module>Intelligent-entity</module>
         <module>Intelligent-util</module>
+        <module>Intelligent-web</module>
+        <module>Intelligent-parent</module>
     </modules>
 
     <!--SpringBoot版本设置-->
