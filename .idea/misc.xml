@@ -8,11 +8,16 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Intelligent-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/Intelligent-common-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Intelligent-web/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/A/pom.xml" />
+        <option value="$PROJECT_DIR$/Intelligent-model/pom.xml" />
+        <option value="$PROJECT_DIR$/Intelligent-service/pom.xml" />
         <option value="$PROJECT_DIR$/Intelligent_Service/pom.xml" />
         <option value="$PROJECT_DIR$/Intelligent_Web/untitled/pom.xml" />
       </set>

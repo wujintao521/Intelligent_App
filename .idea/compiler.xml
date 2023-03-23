@@ -7,16 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Intelligent-service" />
         <module name="Intelligent-Web" />
-        <module name="Intelligent-common" />
-        <module name="Intelligent-model" />
+        <module name="Intelligent-entity" />
+        <module name="Intelligent-common-dao" />
+        <module name="Intelligent-util" />
         <module name="Intelligent-web" />
+        <module name="Intelligent-common-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="A" target="8" />
       <module name="Intelligent-dao" target="8" />
+      <module name="Intelligent-model" target="1.8" />
+      <module name="Intelligent-service" target="1.8" />
       <module name="Intelligent_Util" target="8" />
       <module name="untitled" target="8" />
     </bytecodeTargetLevel>
@@ -24,10 +27,14 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Intelligent-Web" options="-parameters" />
-      <module name="Intelligent-common" options="-parameters" />
+      <module name="Intelligent-common-dao" options="-parameters" />
+      <module name="Intelligent-common-service" options="-parameters" />
       <module name="Intelligent-dao" options="-parameters" />
+      <module name="Intelligent-entity" options="-parameters" />
       <module name="Intelligent-model" options="-parameters" />
+      <module name="Intelligent-parent" options="-parameters" />
       <module name="Intelligent-service" options="-parameters" />
+      <module name="Intelligent-util" options="-parameters" />
       <module name="Intelligent-web" options="-parameters" />
       <module name="Intelligent_Util" options="-parameters" />
     </option>

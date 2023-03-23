@@ -16,3 +16,28 @@ spring:
     time-zone: GMT+8
     serialization:
       write-dates-as-timestamps: false
+
+#------------------mybatis的配置------------------------------
+mybatis:
+  # 类别名映射包路径
+  type-aliases-package: com.intelligent
+  # 全局配置
+  configuration:
+    # 使用驼峰命名法转换字段
+    map-underscore-to-camel-case: true
+    # 使全局的映射器启用或禁用缓存
+    cache-enabled: false
+    # # 控制台打印sql，包含数据
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 自定义转换器包路径
+  type-handlers-package: com.intelligent
+  #mapper文件扫包配置
+  mapper-locations:
+    #加载mapper文件
+    - classpath:/mapper/**/*.xml
+logging:
+  level:
+    root: info
+    com.example: debug
+  file:
+    path:log/intelligent-app.log

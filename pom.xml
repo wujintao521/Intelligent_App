@@ -7,6 +7,12 @@
     <artifactId>Intelligent-app</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Intelligent-common-dao</module>
+        <module>Intelligent-common-service</module>
+        <module>Intelligent-entity</module>
+        <module>Intelligent-util</module>
+    </modules>
 
     <!--SpringBoot版本设置-->
     <parent>
@@ -16,13 +22,6 @@
         <relativePath/>
     </parent>
 
-    <!--子模块依赖-->
-    <modules>
-        <module>Intelligent-web</module>
-        <module>Intelligent-common</module>
-        <module>Intelligent-service</module>
-        <module>Intelligent-model</module>
-    </modules>
     <name>Intelligent-app</name>
     <description>Intelligent-app</description>
     <dependencies>
@@ -102,5 +101,40 @@
             <version>2.9.2</version>
         </dependency>
 
+        <!-- http-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+            <version>3.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>3.4.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <classifier>jdk15</classifier>
+            <version>2.4</version>
+        </dependency>
     </dependencies>
+
 </project>
