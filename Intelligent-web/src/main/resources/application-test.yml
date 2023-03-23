@@ -8,9 +8,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.98.135.144:3306/intelligent_app?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
-    username: retail_uat
-    password: Retail.dusto.com
+    url: jdbc:mysql://47.98.135.144:3306/intelligent_app?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Wjt2734058
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
