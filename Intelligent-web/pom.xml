@@ -13,5 +13,11 @@
     <artifactId>Intelligent-web</artifactId>
     <name>${project.artifactId}</name>
     <description>web启动类</description>
-
+    <dependencies>
+        <dependency>
+            <groupId>Intelligent</groupId>
+            <artifactId>Intelligent-common-service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>

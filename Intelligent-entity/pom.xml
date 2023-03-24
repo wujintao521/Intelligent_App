@@ -10,15 +10,8 @@
         <relativePath/>
     </parent>
 
-    <artifactId>Intelligent-app</artifactId>
-    <packaging>pom</packaging>
-    <name>Intelligent-app</name>
+    <artifactId>Intelligent-entity</artifactId>
+    <name>${project.artifactId}</name>
+    <description>业务实体</description>
 
-    <modules>
-        <module>Intelligent-web</module>
-        <module>Intelligent-parent</module>
-        <module>Intelligent-common-service</module>
-        <module>Intelligent-common-dao</module>
-        <module>Intelligent-entity</module>
-    </modules>
 </project>

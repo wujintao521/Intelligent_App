@@ -2,23 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>Intelligent</groupId>
         <artifactId>Intelligent-parent</artifactId>
         <version>1.0.0</version>
         <relativePath/>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Intelligent-app</artifactId>
-    <packaging>pom</packaging>
-    <name>Intelligent-app</name>
+    <artifactId>Intelligent-common-dao</artifactId>
+    <name>${project.artifactId}</name>
+    <description>公共dao</description>
 
-    <modules>
-        <module>Intelligent-web</module>
-        <module>Intelligent-parent</module>
-        <module>Intelligent-common-service</module>
-        <module>Intelligent-common-dao</module>
-        <module>Intelligent-entity</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>Intelligent</groupId>
+            <artifactId>Intelligent-entity</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
 </project>
