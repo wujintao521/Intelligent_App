@@ -20,5 +20,7 @@
         <module>Intelligent-common-service</module>
         <module>Intelligent-common-dao</module>
         <module>Intelligent-entity</module>
+        <module>Intelligent-common-util</module>
     </modules>
+
 </project>
