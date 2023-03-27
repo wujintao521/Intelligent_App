@@ -1,0 +1,20 @@
+1.list转map
+  List<MdtProduct> mdtProducts = mdtProductMapper.selectProductByCodes(mdtProductCodes);
+  Map<String,MdtProduct> mdtProductMap = mdtProducts.stream().collect(Collectors.toMap(MdtProduct::getCode, MdtProduct ->MdtProduct,(a, b) -> b));
+
+2.俩个list根据某个属性取交集
+private List<InvDeliveryNoteItem> buildDeliveryNoteItems(List<InvDeliveryNoteItem> deliveryNoteItems,List<StockOutCountDto> stockOutCountDtos) {
+    //生成物料凭证时只取中台传过来的no
+    return deliveryNoteItems.stream().filter(
+            o -> stockOutCountDtos.stream().anyMatch(f -> f.getNo().equals(o.getNo()))).collect(Collectors.toList());
+}
+
+3.通过某个属性过滤list
+  List<MdtProduct> products = mdtProductMapper.selectProductByCodes(mdtProductCodes);
+  List<String> boxMaterial = products.stream().filter(e -> "Z01".equals(e.getMaterialTypeGroup())).map(MdtProduct::getCode).collect(Collectors.toList());
+
+4.list通过某个属性建立一对多得关系
+  List<InvCartonCodeItem> invCartonCodeItems = invCartonCodeItemMapper.selectByHeadCode(headCode);
+      //key:NO value:箱码 一对多
+      Map<String,List<String>> carTonMap = invCartonCodeItems.stream()
+              .collect(Collectors.groupingBy(InvCartonCodeItem::getItemNo,Collectors.mapping(InvCartonCodeItem::getCode,Collectors.toList())));

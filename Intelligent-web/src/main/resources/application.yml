@@ -1,8 +1,10 @@
-spring:
-  profiles:
-    #active: @profiles.active@
-    active: dev
-  application:
-    name: IntelligentWebApp
+#------------------server配置------------------------------
+# 服务启动端口
+server.port: 8101
+# 应用名称
+spring.application.name: @artifactId@
+# 默认启动local环境
+spring.profiles.active: dev
+
 
 

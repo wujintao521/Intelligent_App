@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    #active: @profiles.active@
+    active: dev
+  application:
+    name: IntelligentWebApp
