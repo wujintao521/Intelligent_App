@@ -23,6 +23,11 @@
     <description>[Intelligent]项目父类</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>3.0.5</version>
+        </dependency>
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -49,7 +54,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <version>5.1.38</version>
         </dependency>
         <!-- mybatis plus 代码生成器 -->
         <dependency>
@@ -126,6 +131,11 @@
             <artifactId>json-lib</artifactId>
             <classifier>jdk15</classifier>
             <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.druid</groupId>
+            <artifactId>druid-wrapper</artifactId>
+            <version>0.2.9</version>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.intelligent.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.intelligent.entity.UserInfo">
+    <id column="uId" jdbcType="VARCHAR" property="uid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="passWord" jdbcType="VARCHAR" property="password" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="modifyTime" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="deleted" jdbcType="VARCHAR" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    `uId`, userName, `passWord`, createTime, modifyTime, deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where `uId` = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_info
+    where `uId` = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="uId" keyProperty="uid" parameterType="com.intelligent.entity.UserInfo" useGeneratedKeys="true">
+    insert into user_info (userName, `passWord`, createTime, 
+      modifyTime, deleted)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifytime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="uId" keyProperty="uid" parameterType="com.intelligent.entity.UserInfo" useGeneratedKeys="true">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="password != null">
+        `passWord`,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="modifytime != null">
+        modifyTime,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.intelligent.entity.UserInfo">
+    update user_info
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `passWord` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        modifyTime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `uId` = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.intelligent.entity.UserInfo">
+    update user_info
+    set userName = #{username,jdbcType=VARCHAR},
+      `passWord` = #{password,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      modifyTime = #{modifytime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=VARCHAR}
+    where `uId` = #{uid,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectUserInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+  </select>
+
+</mapper>

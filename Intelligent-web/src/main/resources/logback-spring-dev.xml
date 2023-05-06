@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="3 seconds">
+    <!--应用名称-->
+    <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="localhost.log"/>
+    <!--留痕日志索引名称-->
+    <springProperty scope="context" name="traceIndexName" source="elk.trace-index" defaultValue=""/>
+    <!--运行日志索引名称-->
+    <springProperty scope="context" name="logIndexName" source="elk.log-index" defaultValue=""/>
+    <!--请求日志索引名称-->
+    <springProperty scope="context" name="requestIndexName" source="elk.request-index" defaultValue=""/>
+    <!--日志收集服务器LogstashServer-->
+    <springProperty scope="context" name="logstashServer" source="elk.logstash.server" defaultValue=""/>
+    <!--接口日志索引名称-->
+    <springProperty scope="context" name="interfaceIndexName" source="elk.interface-index" defaultValue=""/>
+    <!--自定义属性-服务器名称 -->
+    <define name="hostName" class="jee.boot.common.basic.log.CanonicalHostNamePropertyDefiner"/>
+    <!--运行日志输出为控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--运行日志输出为文件-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>../logs/${appName}_${hostName}.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 业务日志保留180天 -->
+            <MaxHistory>180</MaxHistory>
+            <FileNamePattern>../logs/history/%d{yyyy-MM}/${appName}_${hostName}-%d{yyyy-MM-dd}.zip</FileNamePattern>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!--异常日志输出到Logstash-->
+    <appender name="LOGSTASH_ERROR" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <!--只输出ERROR级别的日志-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <destination>${logstashServer}</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "indexName":"${logIndexName}",
+                        "operateDateTime":"%d{yyyy-MM-dd HH:mm:ss.SSS}",
+                        "level": "%level",
+                        "server": "${appName:-}",
+                        "thread": "%thread",
+                        "class": "%logger{40}",
+                        "msg": "%message",
+                        "stackTrace": "%exception{20}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <!--当有多个LogStash服务时，设置访问策略为轮询-->
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>5 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+    </appender>
+
+    <!--业务数据留痕输出到Logstash-->
+    <appender name="LOGSTASH_TRACE" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logstashServer}</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "indexName":"${traceIndexName}",
+                        "projectName":"%X{projectName}",
+                        "remoteAddr":"%X{remoteAddr}",
+                        "operator":"%X{operator}",
+                        "serviceName": "%X{serviceName}",
+                        "entityName": "%X{entityName}",
+                        "primaryKey": "%X{primaryKey}",
+                        "accountId": "%X{accountId}",
+                        "accountName": "%X{accountName}",
+                        "operateDateTime": "%X{operateDateTime}",
+                        "data": "%X{data}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <!--当有多个LogStash服务时，设置访问策略为轮询-->
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>5 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+    </appender>
+
+    <!--接口日志留痕输出到Logstash-->
+    <appender name="LOGSTASH_INTERFACE" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logstashServer}</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "indexName":"${interfaceIndexName}",
+                        "type":"%X{type}",
+                        "serviceId":"%X{serviceId}",
+                        "serviceName":"%X{serviceName}",
+                        "startTime": "%X{startTime}",
+                        "endTime": "%X{endTime}",
+                        "sourceIp": "%X{sourceIp}",
+                        "url": "%X{url}",
+                        "header": "%X{header}",
+                        "payload": "%X{payload}",
+                        "response": "%X{response}",
+                        "method": "%X{method}",
+                        "runTime": "%X{runTime}",
+                        "statusCode": "%X{statusCode}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <!--当有多个LogStash服务时，设置访问策略为轮询-->
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>5 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+    </appender>
+
+    <!--业务数据留痕输出到Logstash-->
+    <appender name="LOGSTASH_REQUEST" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logstashServer}</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
+            <!-- 自定义索引名称 -->
+            <customFields>{"indexName":"${requestIndexName}"}</customFields>
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "projectName":"%X{projectName}",
+                        "remoteAddr":"%X{remoteAddr}",
+                        "operateDateTime": "%X{operateDateTime}",
+                        "url":"%X{url}",
+                        "userAgent": "%X{userAgent}",
+                        "method": "%X{method}",
+                        "clientId": "%X{clientId}",
+                        "accountId": "%X{accountId}",
+                        "accountName": "%X{accountName}",
+                        "username": "%X{username}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <!--当有多个LogStash服务时，设置访问策略为轮询-->
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>5 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+    </appender>
+
+    <!--运行日志-->
+    <root level="INFO">
+        <!--控制台输出-->
+        <appender-ref ref="STDOUT"/>
+        <!--文件输出-->
+        <appender-ref ref="FILE"/>
+        <!--Logstash输出（Error级别）-->
+        <appender-ref ref="LOGSTASH_ERROR"/>
+    </root>
+
+    <!-- 日志留痕 -->
+    <logger name="jee.boot.log.aspect.LeaveTracesAspect" level="INFO" additivity="false">
+        <appender-ref ref="LOGSTASH_TRACE"/>
+    </logger>
+    <!-- 请求日志(只在gateway中拦截) -->
+    <logger name="jee.boot.gateway.filter.WebRequestFilter" level="INFO" additivity="false">
+        <appender-ref ref="LOGSTASH_REQUEST"/>
+    </logger>
+    <!-- 接口日志留痕 -->
+    <logger name="jee.boot.log.aspect.InterfaceLogAspect" level="INFO" additivity="false">
+        <appender-ref ref="LOGSTASH_INTERFACE"/>
+    </logger>
+    <!-- nacos日志级别 -->
+    <logger name="com.alibaba.nacos.client.naming" level="error"/>
+</configuration>

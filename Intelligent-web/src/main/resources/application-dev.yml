@@ -6,16 +6,18 @@ server:
 
 #Spring整合mysql驱动
 spring:
+  #------------------数据库配置------------------------------
+  schema: dev_dusto_dmp
+  # 默认所有微服务是用当前数据库链接，如果某一个微服是用单独的数据库，则在内部单独指定即可
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.98.135.144:3306/intelligent_app?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: Wjt2734058
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-    serialization:
-      write-dates-as-timestamps: false
+    name: main
+    # dev 开发环境数据源
+    url: jdbc:mysql://172.16.12.116:4000/dev_dusto_dmp?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: retail_uat
+    password: Retail.dusto.com
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
 
 #------------------mybatis的配置------------------------------
 mybatis:

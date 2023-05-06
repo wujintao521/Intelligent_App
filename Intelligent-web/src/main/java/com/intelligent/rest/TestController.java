@@ -3,6 +3,7 @@ package com.intelligent.rest;
 import com.intelligent.basic.exception.ServiceException;
 import com.intelligent.basic.result.ResponseMessage;
 import com.intelligent.entity.UserInfo;
+import com.intelligent.entity.WzlBigdata;
 import com.intelligent.service.DemoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,5 +25,14 @@ public class TestController {
        return demoService.getUserInfo();
     }
 
+    @GetMapping("/queryList")
+    public ResponseMessage<List<WzlBigdata>> queryList() {
+        return demoService.queryList();
+    }
+
+    @GetMapping("/queryCount")
+    public ResponseMessage<Integer> queryCount() {
+        return demoService.queryCount();
+    }
 
 }
