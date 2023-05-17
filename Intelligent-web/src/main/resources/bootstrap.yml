@@ -1,0 +1,38 @@
+#------------------server配置------------------------------
+# 服务启动端口
+server.port: 8101
+# 应用名称
+spring.application.name: Intelligent-web
+# 默认启动local环境
+spring.profiles.active: dev
+
+
+# nacos公共配置
+spring:
+  # 配置中心
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        ## 指定注册ip
+        #ip: 127.0.0.1
+        ## 本地注册云端调试功能，设置 metadata.mode: debug
+        #metadata:
+          #mode: debug
+      config:
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yml
+        shared-configs[0]:
+          data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          refresh: true
+
+# 配置模块-开发环境
+spring.config.activate.on-profile: dev
+# 注册中心地址
+spring.cloud.nacos.discovery.server-addr: 47.98.135.144:8848
+# 注册中心命名空间
+spring.cloud.nacos.discovery.namespace: 634c4ed9-9ce4-46f3-8e31-43f82b740472
