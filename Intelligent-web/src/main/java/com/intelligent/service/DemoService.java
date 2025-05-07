@@ -9,9 +9,7 @@ import java.util.List;
 
 public interface DemoService {
 
-    ResponseMessage<List<UserInfo>> getUserInfo();
+    ResponseMessage save();
 
-    ResponseMessage<List<WzlBigdata>> queryList();
-
-    ResponseMessage<Integer> queryCount();
+    ResponseMessage get();
 }

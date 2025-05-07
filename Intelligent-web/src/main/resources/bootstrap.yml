@@ -33,6 +33,6 @@ spring:
 # 配置模块-开发环境
 spring.config.activate.on-profile: dev
 # 注册中心地址
-spring.cloud.nacos.discovery.server-addr: 47.98.135.144:8848
+spring.cloud.nacos.discovery.server-addr: 10.0.2.101:8848
 # 注册中心命名空间
-spring.cloud.nacos.discovery.namespace: 634c4ed9-9ce4-46f3-8e31-43f82b740472
+spring.cloud.nacos.discovery.namespace: 93f8caeb-85e6-4eaf-a440-5ad8b052906f

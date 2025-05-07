@@ -22,10 +22,10 @@
     delete from user_info
     where `uId` = #{uid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" keyColumn="uId" keyProperty="uid" parameterType="com.intelligent.entity.UserInfo" useGeneratedKeys="true">
-    insert into user_info (userName, `passWord`, createTime, 
+  <insert id="insert">
+    insert into user_info (uId,userName, `passWord`, createTime,
       modifyTime, deleted)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+    values (#{uid,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
       #{modifytime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="uId" keyProperty="uid" parameterType="com.intelligent.entity.UserInfo" useGeneratedKeys="true">

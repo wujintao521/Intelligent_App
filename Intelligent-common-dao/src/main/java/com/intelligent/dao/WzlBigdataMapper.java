@@ -12,4 +12,5 @@ public interface WzlBigdataMapper {
 
     Integer selectCount();
 
+    int insert(WzlBigdata record);
 }

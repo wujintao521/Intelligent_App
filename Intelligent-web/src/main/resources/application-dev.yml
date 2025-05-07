@@ -43,3 +43,8 @@ logging:
     com.example: debug
   file:
     path:log/intelligent-app.log
+
+
+
+
+

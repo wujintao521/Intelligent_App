@@ -1,15 +1,15 @@
 package com.intelligent.rest;
 
-import com.intelligent.basic.exception.ServiceException;
 import com.intelligent.basic.result.ResponseMessage;
-import com.intelligent.entity.UserInfo;
-import com.intelligent.entity.WzlBigdata;
+import com.intelligent.basic.result.Result;
 import com.intelligent.service.DemoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,22 +17,29 @@ public class TestController {
 
     final DemoService demoService;
 
-    @GetMapping("/test")
-    public ResponseMessage<List<UserInfo>> test() {
-        if (1==1) {
-            throw new ServiceException("错了");
-        }
-       return demoService.getUserInfo();
+    @PostMapping("/test/user/login")
+    public ResponseMessage test() {
+        Map<String,String> map = new HashMap<>();
+        map.put("token","admin-token");
+        return Result.success(map);
     }
 
-    @GetMapping("/queryList")
-    public ResponseMessage<List<WzlBigdata>> queryList() {
-        return demoService.queryList();
+    @GetMapping("/test/user/info")
+    public ResponseMessage info() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("roles","[admin]");
+        map.put("name","admin");
+        map.put("avatar","https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg");
+        return Result.success(map);
     }
 
-    @GetMapping("/queryCount")
-    public ResponseMessage<Integer> queryCount() {
-        return demoService.queryCount();
+    @PostMapping("/test/user/logout")
+    public ResponseMessage get() {
+        return Result.success();
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }

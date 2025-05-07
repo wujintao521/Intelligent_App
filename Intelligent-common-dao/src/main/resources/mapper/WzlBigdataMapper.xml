@@ -32,4 +32,14 @@
     from wzl_bigdata
   </select>
 
+  <insert id="insert">
+    insert into wzl_bigdata (`id`,`name`, code, `time`,
+    num, create_by, create_date,
+    update_by, update_date, `status`,
+    update_flag, dict)
+    values (#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP},
+    #{num,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+    #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR},
+    #{updateFlag,jdbcType=VARCHAR}, #{dict,jdbcType=VARCHAR})
+  </insert>
 </mapper>

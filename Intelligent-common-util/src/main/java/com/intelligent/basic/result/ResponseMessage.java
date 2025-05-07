@@ -24,7 +24,7 @@ public class ResponseMessage<T> {
 
     public ResponseMessage(Integer code, String message, T data) {
         this.code = code;
-        this.message = message;
+        //this.message = message;
         this.data = data;
     }
 
